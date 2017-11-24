@@ -17,11 +17,11 @@ public class Player2Paddle : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-            paddlePosition.y -= 15f;
+            paddlePosition.y -= 10f;
         }
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            paddlePosition.y += 15f;
+            paddlePosition.y += 10f;
         }
         paddlePosition.y = Mathf.Clamp(paddlePosition.y, 50f, 555f);
         transform.position = paddlePosition;

@@ -14,15 +14,23 @@ public class SceneLoader : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName.Contains("Level1"))
+        if (sceneName.Contains("Level"))
         {
-            if (ScoreManager.player1Score == 10 || ScoreManager.player2Score == 10)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else if (sceneName.Contains("Level2"))
-        {
-            if (ScoreManager.player1Score == 30 || ScoreManager.player2Score == 30)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (sceneName.Contains("1"))
+            {
+                if (ScoreManager.player1Score == 10 || ScoreManager.player2Score == 10)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else if (sceneName.Contains("2"))
+            {
+                if (ScoreManager.player1Score == 30 || ScoreManager.player2Score == 30)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else if (sceneName.Contains("3"))
+            {
+                if (ScoreManager.player1Score == 50 || ScoreManager.player2Score == 50)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
     public void loadSpecificScene(string sceneName)
