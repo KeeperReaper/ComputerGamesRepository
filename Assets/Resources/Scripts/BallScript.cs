@@ -36,8 +36,15 @@ public class BallScript : MonoBehaviour
         else if (collision.gameObject.name.Equals("Player2Goal"))
             ScoreManager.player1Score += (int.Parse(sceneName.Substring(sceneName.Length - 1)));
 
-        if (ScoreManager.player1Score == 10 || ScoreManager.player2Score == 10 || ScoreManager.player1Score == 30 || ScoreManager.player2Score == 30)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (sceneName.Contains("Level1")) {
+            if (ScoreManager.player1Score == 10 || ScoreManager.player2Score == 10)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if (sceneName.Contains("Level2"))
+        {
+            if (ScoreManager.player1Score == 30 || ScoreManager.player2Score == 30)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
 }

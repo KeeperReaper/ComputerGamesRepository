@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\BallScript.cs" />
+    <Compile Include="Assets\Resources\Scripts\MovingObstacle.cs" />
     <Compile Include="Assets\Resources\Scripts\Player1Paddle.cs" />
     <Compile Include="Assets\Resources\Scripts\Player2Paddle.cs" />
     <Compile Include="Assets\Resources\Scripts\ScoreManager.cs" />
