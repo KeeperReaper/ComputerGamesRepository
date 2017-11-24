@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 9
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 8
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -77,19 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_ShadowMaskMode: 2
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -109,8 +107,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    debug:
-      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!4 &15695455 stripped
 Transform:
@@ -172,6 +168,7 @@ GameObject:
   - component: {fileID: 112288271}
   - component: {fileID: 112288270}
   - component: {fileID: 112288274}
+  - component: {fileID: 112288275}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -231,6 +228,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!4 &112288273
 Transform:
   m_ObjectHideFlags: 0
@@ -243,7 +241,7 @@ Transform:
   m_LocalScale: {x: 1.1124821, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &112288274
 MonoBehaviour:
@@ -258,6 +256,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Scoreboard: {fileID: 498204944}
   player2Scoreboard: {fileID: 468034187}
+--- !u!114 &112288275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 112288269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5aa653cf2695204193e643832495858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &305018924
 Prefab:
   m_ObjectHideFlags: 0
@@ -330,8 +339,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1034847992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500, y: 300, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 861710903}
   - {fileID: 1748505906}
@@ -342,13 +351,13 @@ RectTransform:
   - {fileID: 808680820}
   - {fileID: 15695455}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1001 &802368505
 Prefab:
   m_ObjectHideFlags: 0
@@ -359,12 +368,12 @@ Prefab:
     - target: {fileID: 224684477572678868, guid: b87642f2a4cc209478517048728616d6,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 149.54999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224684477572678868, guid: b87642f2a4cc209478517048728616d6,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 234.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224684477572678868, guid: b87642f2a4cc209478517048728616d6,
         type: 2}
@@ -747,12 +756,12 @@ Prefab:
     - target: {fileID: 224339472010946824, guid: eb18d6cd7a2f61346ac0b51ad5690450,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -149.55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224339472010946824, guid: eb18d6cd7a2f61346ac0b51ad5690450,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 234.35004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224339472010946824, guid: eb18d6cd7a2f61346ac0b51ad5690450,
         type: 2}

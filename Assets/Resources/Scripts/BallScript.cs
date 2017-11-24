@@ -9,7 +9,7 @@ public class BallScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0, 1) == 1 ? 150f : -150f, Random.Range(0, 1) == 1 ? 500f : -500f);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0, 2) == 1 ? 150f : -150f, Random.Range(0, 2) == 1 ? 500f : -500f);
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class BallScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0, 1) == 1 ? 150f : -150f, Random.Range(0, 1) == 1 ? 500f : -500f);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0, 2) == 1 ? 150f : -150f, Random.Range(0, 2) == 1 ? 500f : -500f);
         transform.position = new Vector3(500, 300, 0); // Goes back in the middle.
         string sceneName = SceneManager.GetActiveScene().name;
 
@@ -35,16 +35,6 @@ public class BallScript : MonoBehaviour
             ScoreManager.player2Score += (int.Parse(sceneName.Substring(sceneName.Length - 1)));
         else if (collision.gameObject.name.Equals("Player2Goal"))
             ScoreManager.player1Score += (int.Parse(sceneName.Substring(sceneName.Length - 1)));
-
-        if (sceneName.Contains("Level1")) {
-            if (ScoreManager.player1Score == 10 || ScoreManager.player2Score == 10)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else if (sceneName.Contains("Level2"))
-        {
-            if (ScoreManager.player1Score == 30 || ScoreManager.player2Score == 30)
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
     }
 
 }

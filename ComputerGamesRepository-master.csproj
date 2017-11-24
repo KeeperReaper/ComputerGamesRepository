@@ -97,6 +97,7 @@
     <Compile Include="Assets\Resources\Scripts\MovingObstacle.cs" />
     <Compile Include="Assets\Resources\Scripts\Player1Paddle.cs" />
     <Compile Include="Assets\Resources\Scripts\Player2Paddle.cs" />
+    <Compile Include="Assets\Resources\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Resources\Scripts\ScoreManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
