@@ -25,6 +25,8 @@ public class ScoreManager : MonoBehaviour {
         }
         else if (SceneManager.GetActiveScene().name.Contains("Gameover")) {
             gameover.text = player1Score > player2Score ? "Player 1 Won" : "Player 2 Won";
+            ScoreManager.player1Score = 0;
+            ScoreManager.player2Score = 0;
         }
     }
     

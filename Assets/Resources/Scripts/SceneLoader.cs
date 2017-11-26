@@ -23,12 +23,12 @@ public class SceneLoader : MonoBehaviour {
             }
             else if (sceneName.Contains("2"))
             {
-                if (ScoreManager.player1Score == 30 || ScoreManager.player2Score == 30)
+                if (ScoreManager.player1Score == 20 || ScoreManager.player2Score == 20)
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else if (sceneName.Contains("3"))
             {
-                if (ScoreManager.player1Score == 50 || ScoreManager.player2Score == 50)
+                if (ScoreManager.player1Score > 40 || ScoreManager.player2Score > 40)
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
