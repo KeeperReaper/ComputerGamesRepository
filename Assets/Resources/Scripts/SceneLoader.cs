@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour {
-    
+
+    public Text gameover;
 	// Use this for initialization
 	void Start () {
-		
-	}
+        if (SceneManager.GetActiveScene().name.Contains("Gameover"))
+        {
+            gameover.text = (ScoreManager.player1Score > ScoreManager.player2Score) ? "Player 1 Won" : "Player 2 Won";
+            ScoreManager.player1Score = 0;
+            ScoreManager.player2Score = 0;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,7 +35,7 @@ public class SceneLoader : MonoBehaviour {
             }
             else if (sceneName.Contains("3"))
             {
-                if (ScoreManager.player1Score > 40 || ScoreManager.player2Score > 40)
+                if (ScoreManager.player1Score > 30 || ScoreManager.player2Score > 30)
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

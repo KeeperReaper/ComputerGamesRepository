@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class BallScript : MonoBehaviour
 {
-   
+    GameObject paddle1, paddle2;
     // Use this for initialization
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0, 2) == 1 ? 150f : -150f, Random.Range(0, 2) == 1 ? 500f : -500f);
+        paddle1 = GameObject.Find("Player1Paddle");
+        paddle2 = GameObject.Find("Player2Paddle");
+        StartCoroutine(startBall(1));
     }
 
     // Update is called once per frame
@@ -18,23 +20,41 @@ public class BallScript : MonoBehaviour
 
     }
 
+    IEnumerator startBall(int playerNo)
+    {
+        transform.position = new Vector3(500, 300, 0);
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        float currentYDifference;
+        if (playerNo == 1)
+        {
+            currentYDifference = paddle1.transform.position.y - transform.position.y;
+        }
+        else {
+            currentYDifference = paddle2.transform.position.y - transform.position.y;
+        }
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(playerNo == 1 ? -500f : 500f, currentYDifference);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (GetComponent<Rigidbody2D>().velocity.x.ToString().Contains("-")) // On each collision it increases velocity respectively on where the ball is going next
+        if (GetComponent<Rigidbody2D>().velocity.x.ToString().Contains("-"))
             GetComponent<Rigidbody2D>().velocity = new Vector2((GetComponent<Rigidbody2D>().velocity.x) - 30f, GetComponent<Rigidbody2D>().velocity.y);
         else
             GetComponent<Rigidbody2D>().velocity = new Vector2((GetComponent<Rigidbody2D>().velocity.x) + 30f, GetComponent<Rigidbody2D>().velocity.y);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(0, 2) == 1 ? 150f : -150f, Random.Range(0, 2) == 1 ? 500f : -500f);
-        transform.position = new Vector3(500, 300, 0); // Goes back in the middle.
         string sceneName = SceneManager.GetActiveScene().name;
-
         if (collision.gameObject.name.Equals("Player1Goal"))
+        {
             ScoreManager.player2Score += (int.Parse(sceneName.Substring(sceneName.Length - 1)));
-        else if (collision.gameObject.name.Equals("Player2Goal"))
+            StartCoroutine(startBall(1));
+        } else if (collision.gameObject.name.Equals("Player2Goal")) {
             ScoreManager.player1Score += (int.Parse(sceneName.Substring(sceneName.Length - 1)));
+            StartCoroutine(startBall(2));
+        }
     }
-
 }

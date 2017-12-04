@@ -16,17 +16,11 @@ public class ScoreManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
         if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             player1Scoreboard.text = "" + player1Score;
             player2Scoreboard.text = "" + player2Score;
 
-        }
-        else if (SceneManager.GetActiveScene().name.Contains("Gameover")) {
-            gameover.text = player1Score > player2Score ? "Player 1 Won" : "Player 2 Won";
-            ScoreManager.player1Score = 0;
-            ScoreManager.player2Score = 0;
         }
     }
     

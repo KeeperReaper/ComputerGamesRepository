@@ -1,21 +1,20 @@
 fileFormatVersion: 2
-guid: 24857dc4b46c67f4f8dfaf789dbaabe6
-timeCreated: 1511375472
+guid: 6db6df077f0f3ec4a81ac32057d9d4cd
+timeCreated: 1512392004
 licenseType: Free
 TrueTypeFontImporter:
-  externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 75
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Bit5x3
+  fontName: VCR OSD Mono
   fontNames:
-  - Bit5x3
+  - VCR OSD Mono
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 3
   ascentCalculationMode: 1
   userData: 
   assetBundleName: 
