@@ -12,9 +12,9 @@ public class SceneLoader : MonoBehaviour {
 	void Start () {
         if (SceneManager.GetActiveScene().name.Contains("Gameover"))
         {
-            gameover.text = (ScoreManager.player1Score > ScoreManager.player2Score) ? "Player 1 Won" : "Player 2 Won";
-            ScoreManager.player1Score = 0;
-            ScoreManager.player2Score = 0;
+            gameover.text = (ScoreManager.totalplayer1Score > ScoreManager.totalplayer2Score) ? "Player 1 Won" :
+                (ScoreManager.totalplayer1Score < ScoreManager.totalplayer2Score) ? "Player 2 Won" : "Draw";
+            ScoreManager.resetScore();
         }
     }
 	
@@ -25,18 +25,28 @@ public class SceneLoader : MonoBehaviour {
         {
             if (sceneName.Contains("1"))
             {
-                if (ScoreManager.player1Score == 10 || ScoreManager.player2Score == 10)
+                if (ScoreManager.player1Score >= 10 || ScoreManager.player2Score >= 10)
+                {
+                    ScoreManager.appendTotal();
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
             else if (sceneName.Contains("2"))
             {
-                if (ScoreManager.player1Score == 20 || ScoreManager.player2Score == 20)
+                if (ScoreManager.player1Score >= 20 || ScoreManager.player2Score >= 20)
+                {
+                    ScoreManager.appendTotal();
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
             else if (sceneName.Contains("3"))
             {
-                if (ScoreManager.player1Score > 30 || ScoreManager.player2Score > 30)
+                if (ScoreManager.player1Score >= 30 || ScoreManager.player2Score >= 30)
+                {
+
+                    ScoreManager.appendTotal();
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
             }
         }
     }
